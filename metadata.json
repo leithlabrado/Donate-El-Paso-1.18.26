@@ -1,0 +1,7 @@
+{
+  "name": "Donate El Paso",
+  "description": "A full-stack non-profit platform for clothing donations, bin tracking, and community event management in El Paso.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
