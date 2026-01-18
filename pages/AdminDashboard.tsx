@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { getContent, saveContent } from '../contentStore';
-import { SiteContent, Event, BinLocation } from '../types';
+import type { SiteContent, Event as SiteEvent, BinLocation } from '../types';
 
 const AdminDashboard: React.FC = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -10,7 +10,7 @@ const AdminDashboard: React.FC = () => {
   const [content, setContent] = useState(getContent());
 
   // Local state for "New Event" form
-  const [newEvent, setNewEvent] = useState<Partial<Event>>({
+  const [newEvent, setNewEvent] = useState<Partial<SiteEvent>>({
     title: '',
     date: '',
     description: '',
@@ -50,7 +50,7 @@ const AdminDashboard: React.FC = () => {
 
   const handleAddEvent = () => {
     if (!newEvent.title || !newEvent.date) return;
-    const eventToAdd: Event = {
+    const eventToAdd: SiteEvent = {
       id: Date.now().toString(),
       title: newEvent.title || '',
       date: newEvent.date || '',
@@ -226,7 +226,6 @@ const AdminDashboard: React.FC = () => {
             </div>
           )}
 
-          {/* Standard Design / Home / About Tab Content remain the same */}
           {activeTab === 'design' && (
             <div className="space-y-8">
               <label className="block text-sm font-bold text-slate-700 mb-2">Primary Color</label>

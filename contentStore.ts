@@ -1,5 +1,5 @@
 
-import { SiteContent, Event, BinLocation } from './types';
+import type { SiteContent, Event, BinLocation } from './types';
 import { INITIAL_LOCATIONS, INITIAL_EVENTS } from './constants';
 
 const DEFAULT_CONTENT: SiteContent = {
@@ -58,5 +58,5 @@ export const getContent = (): SiteContent => {
 
 export const saveContent = (content: SiteContent) => {
   localStorage.setItem('donate_el_paso_content', JSON.stringify(content));
-  window.dispatchEvent(new Event('contentUpdate'));
+  window.dispatchEvent(new CustomEvent('contentUpdate'));
 };
